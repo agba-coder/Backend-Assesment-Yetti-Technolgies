@@ -1,4 +1,4 @@
-from django.contrib.auth.models import User
+from .models import CustomUser
 from django.contrib.auth import login
 from django.shortcuts import render, redirect
 from django.contrib import auth
@@ -15,13 +15,13 @@ def register(request):
     	confirm_password = request.POST["Cpassword"]
 
     	if password == confirm_password: # validate passwords
-    		if User.objects.filter(email=email).exists():
+    		if CustomUser.objects.filter(email=email).exists():
     			print('Username Taken')
     			messages.error(request, 'Email Already Taken!')
     			return render(request, 'signup.html')
 
     		else:
-    			user = User.objects.create_user(username=email, password=password)
+    			user = CustomUser.objects.create_user(email=email, password=password)
     			user.save();
     			auth.login(request, user) # Log in the user after registration
     			return redirect("hello_world") # Redirect to the "Hello World" page
@@ -37,9 +37,9 @@ def register(request):
 def login(request):
 	if request.method == "POST":
 		email = request.POST.get("email", None)
-		password = request.POST.get("pass", None)
+		password = request.POST.get("password", None)
 
-		user = auth.authenticate(username=email, password=password)
+		user = auth.authenticate(email=email, password=password)
 
 		if user is not None:
 			auth.login(request, user)
