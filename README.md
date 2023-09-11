@@ -57,7 +57,7 @@ Before you begin, ensure you have the following installed:
 
    ```
 6.  ```shell
-   cd webAssesment
+      cd webAssesment
    ```
 
 
@@ -108,5 +108,5 @@ Feel free to contribute to this project by submitting issues or pull requests. Y
 
 ## License
 
-This project is licensed under the MIT License - see the [https://github.com/agba-coder/Backend-Assesment-Yetti-Technolgies/blob/main/LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License - see the [LICENSE](https://github.com/agba-coder/Backend-Assesment-Yetti-Technolgies/blob/main/LICENSE) file for details.
 ```
